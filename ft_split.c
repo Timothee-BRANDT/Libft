@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:49:55 by tbrandt           #+#    #+#             */
-/*   Updated: 2021/10/27 13:46:20 by tbrandt          ###   ########.fr       */
+/*   Updated: 2021/10/29 14:29:47 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ char	**ft_split(const char *str, char c)
 	size_t		k;
 	char		**tab;
 
+	if (!str)
+		return (NULL);
 	i = -1;
 	j = 0;
 	k = 0;
@@ -62,7 +64,6 @@ char	**ft_split(const char *str, char c)
 			j++;
 		while (str[j] && str[j] != c)
 			tab[i][k++] = str[j++];
-		j++;
 		tab[i][k] = 0;
 	}
 	tab[i] = NULL;

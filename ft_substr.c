@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 16:36:52 by tbrandt           #+#    #+#             */
-/*   Updated: 2021/10/26 17:33:32 by tbrandt          ###   ########.fr       */
+/*   Updated: 2021/10/29 14:19:46 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	char	*str;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	if (ft_strlen(s) - start < len)
 		len = ft_strlen(s) - start;
 	if (start > ft_strlen(s))

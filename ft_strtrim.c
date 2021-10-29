@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:14:16 by tbrandt           #+#    #+#             */
-/*   Updated: 2021/10/27 12:52:52 by tbrandt          ###   ########.fr       */
+/*   Updated: 2021/10/29 14:27:48 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int			k;
 	char		*str;
 
+	if (!s1 || !set)
+		return (NULL);
 	str = (char *) s1;
 	i = 0;
 	k = 0;
@@ -47,10 +49,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!str)
 		return (NULL);
 	while (i <= j)
-	{
-		str[k++] = s1[i];
-		i++;
-	}
+		str[k++] = s1[i++];
 	str[k] = '\0';
 	return (str);
 }

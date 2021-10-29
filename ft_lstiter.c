@@ -6,8 +6,19 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 15:49:57 by tbrandt           #+#    #+#             */
-/*   Updated: 2021/10/27 15:49:58 by tbrandt          ###   ########.fr       */
+/*   Updated: 2021/10/29 14:43:06 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (!lst)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}
