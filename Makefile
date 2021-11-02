@@ -10,13 +10,17 @@ NAME = libft.a
 
 FLAGS = -Wall -Wextra -Werror
 
+ifdef WITH_BONUS
+	OBJS = ${FCTS:.c=.o} ${FCTS_BONUS:.c=.o}
+endif
+
 %.o:	%.c
 	gcc -c ${FLAGS} -o $@ $<  
 
 all:	${NAME}
 
-bonus:	${OBJS_BONUS} ${OBJS}
-	ar rc ${NAME} ${OBJS_BONUS}
+bonus:
+	make WITH_BONUS=1 all
 
 ${NAME}:${OBJS}
 	ar rc ${NAME} ${OBJS}

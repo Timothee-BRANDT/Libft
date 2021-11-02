@@ -6,14 +6,14 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:49:55 by tbrandt           #+#    #+#             */
-/*   Updated: 2021/10/29 14:29:47 by tbrandt          ###   ########.fr       */
+/*   Updated: 2021/11/02 18:41:48 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-size_t	count_words(char *str, char c)
+size_t	count_words(const char *str, char c)
 {
 	size_t		i;
 	size_t		j;
@@ -31,7 +31,7 @@ size_t	count_words(char *str, char c)
 	return (j);
 }
 
-size_t	size_words(char *str, char c)
+size_t	size_words(const char *str, char c)
 {
 	size_t	i;
 
@@ -58,7 +58,7 @@ char	**ft_split(const char *str, char c)
 		return (NULL);
 	while (++i < count_words((char *)str, c))
 	{
-		tab[i] = malloc(sizeof(char) * (size_words((char *)str, c) + 1));
+		tab[i] = malloc(sizeof(char) * (size_words(((str + j + 1)), c)) + 1);
 		k = 0;
 		while (str[j] && str[j] == c)
 			j++;
@@ -69,17 +69,3 @@ char	**ft_split(const char *str, char c)
 	tab[i] = NULL;
 	return (tab);
 }
-
-/*
-int main()
-{
-	char str[] = "coucouXbonsoirXcorrecteurX";
-	char c = 'X';
-	char **test = ft_split(str, c);
-	int i = 0;
-	while(test[i])
-	{
-		printf("%s\n", test[i]);
-		i++;
-	}
-}*/
